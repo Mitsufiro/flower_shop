@@ -11,7 +11,6 @@ from crud.flowers_in_order import CRUDFlowersInOrder
 from crud.token import CRUDToken
 from crud.order import CRUDOrder
 from crud.user import CRUDUser
-# from crud.token import CRUDToken
 from models.user import DBTokenbl, DBUser, DBOrder, DBFlower, DBFlowersInOrder
 
 

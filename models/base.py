@@ -2,9 +2,7 @@
 This module contains helper models which is used for inheritance purposes.
 """
 import uuid as uuid_pkg
-from datetime import datetime
-
-from sqlalchemy import TIMESTAMP, Column, text
+from sqlalchemy import text
 from sqlmodel import Field, SQLModel
 
 

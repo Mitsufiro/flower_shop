@@ -1,7 +1,3 @@
-"""
-Module that contains User CRUD subclass. Contains custom logic to handle
-user retrieval, creation and authentication.
-"""
 from typing import List, Optional
 from uuid import UUID
 
@@ -18,7 +14,7 @@ from schema import CreateUserReq, UpdateUserReq, UpdateOrderReq, CreateOrderReq
 
 class CRUDOrder(CRUDBase[DBOrder, CreateOrderReq, UpdateOrderReq]):
     """
-    Wrapper to handle User CRUD operations.
+    Wrapper to handle Order CRUD operations.
     """
 
     async def get_by_customer_name(
@@ -26,14 +22,6 @@ class CRUDOrder(CRUDBase[DBOrder, CreateOrderReq, UpdateOrderReq]):
             *,
             customer_name: str,
     ) -> DBOrder | None:
-        """
-        Method to get user by email.
-
-        :param email: user email
-        :type email: str
-        :return: user object
-        :rtype: DBUser
-        """
         users = await self.session.execute(select(DBOrder).where(DBOrder.customer_name == customer_name))
         return users.scalar_one_or_none()
 
@@ -79,7 +67,6 @@ class CRUDOrder(CRUDBase[DBOrder, CreateOrderReq, UpdateOrderReq]):
             self,
             *,
             obj_in: CreateOrderReq
-            # role: UserRole | None = UserRole.user,
     ) -> DBOrder:
 
         db_obj = DBOrder.from_orm(obj_in)

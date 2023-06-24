@@ -11,14 +11,13 @@ from sqlalchemy import select
 from starlette import status
 
 from crud.base import CRUDBase, ModelType
-from models.user import DBOrder, DBFlower, DBFlowersInOrder
-from routers.security import get_password_hash, verify_password
+from models.user import DBFlower
 from schema import CreateUserReq, UpdateUserReq, UpdateOrderReq, CreateOrderReq, CreateFlowerReq, UpdateFlowerReq
 
 
 class CRUDFlower(CRUDBase[DBFlower, CreateFlowerReq, UpdateFlowerReq]):
     """
-    Wrapper to handle User CRUD operations.
+    Wrapper to handle Flower CRUD operations.
     """
 
     async def get_by_name(

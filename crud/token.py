@@ -1,22 +1,14 @@
-"""
-Module that contains User CRUD subclass. Contains custom logic to handle
-user retrieval, creation and authentication.
-"""
-from typing import List, Optional
 from uuid import UUID
-
-from fastapi import HTTPException
-from pydantic import EmailStr
 from sqlalchemy import select
-from starlette import status
-
-from crud.base import CRUDBase, ModelType
+from crud.base import CRUDBase
 from models.user import DBTokenbl
-from routers.security import get_password_hash, verify_password
 from schema import ExpireTokenReq, TokenSchema
 
 
 class CRUDToken(CRUDBase[DBTokenbl, TokenSchema, ExpireTokenReq]):
+    """
+       Wrapper to handle Token CRUD operations.
+    """
     async def create_tokenbl(
             self,
             *,
@@ -32,14 +24,6 @@ class CRUDToken(CRUDBase[DBTokenbl, TokenSchema, ExpireTokenReq]):
             self,
             user_id: UUID,
     ):
-        """
-        Method to check existence of user by email.
-
-        :param email: user email
-        :type email: str
-        :return: True if user exists otherwise False
-        :rtype: bool
-        """
         user = await self.session.execute(select(DBTokenbl).where(DBTokenbl.user_id == user_id))
 
         return user.scalars().all()

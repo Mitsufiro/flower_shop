@@ -11,7 +11,7 @@ from schema import CreateOrderReq
 
 ROUTER = APIRouter(prefix="/orders", tags=["Orders"])
 
-
+# Получение информации о заказах
 @ROUTER.get('/orders')
 async def get_all_orders(token: TokenData = Depends(
     RequiredRoles(
@@ -22,7 +22,7 @@ async def get_all_orders(token: TokenData = Depends(
 ), order_crud: CRUDOrder = Depends(get_order_crud)):
     return await order_crud.get_all_orders()
 
-
+# Создание заказа, куда в последствии будут добавляться цветы
 @ROUTER.post('/create_order')
 async def create_order(
         token: TokenData = Depends(RequiredRoles([UserRole.admin, UserRole.user])),
@@ -32,7 +32,7 @@ async def create_order(
     order = await order_crud.create_order(obj_in=new_order)
     return order
 
-
+# Получение информации  о заказе по id
 @ROUTER.get('/get_order')
 async def get_order(order_id, token: TokenData = Depends(
     RequiredRoles(
@@ -47,7 +47,7 @@ async def get_order(order_id, token: TokenData = Depends(
     print(type(order.flowers))
     return order
 
-
+# Удаление заказа, вместе с удалением заказа удаляется вся история добавлений цветов к заказу
 @ROUTER.delete('/delete_order')
 async def delete_order(order_id, token: TokenData = Depends(
     RequiredRoles(

@@ -12,6 +12,7 @@ from schema import CreateFlsInOrdr
 ROUTER = APIRouter(prefix="/flowersinorder", tags=["FlowersInOrder"])
 
 
+# История добавлений цветов к заказам
 @ROUTER.get('/flowersinorder')
 async def get_all_flowers_in_order(flowers_in_order_crud: CRUDOrder = Depends(get_flowers_in_order_crud),
                                    token: TokenData = Depends(
@@ -24,6 +25,7 @@ async def get_all_flowers_in_order(flowers_in_order_crud: CRUDOrder = Depends(ge
     return await flowers_in_order_crud.get_all_flowers_in_order()
 
 
+# Добавление цветов к заказу, тут увеличивается цена всего заказа в зависимости от того какие цветы добавлены и сколько
 @ROUTER.post('/add_flower_to_order')
 async def add_flower_to_order(new_flowers_in_order: CreateFlsInOrdr,
                               flower_crud: CRUDFlower = Depends(get_flower_crud),

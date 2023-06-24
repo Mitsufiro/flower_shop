@@ -4,36 +4,21 @@ user retrieval, creation and authentication.
 """
 from typing import List, Optional
 from uuid import UUID
-
-from fastapi import HTTPException
-from pydantic import EmailStr
 from sqlalchemy import select
-from starlette import status
-
 from crud.base import CRUDBase, ModelType
-from models.user import DBOrder, DBFlower, DBFlowersInOrder
-from routers.security import get_password_hash, verify_password
-from schema import CreateUserReq, UpdateUserReq, UpdateOrderReq, CreateOrderReq, CreateFlsInOrdr
+from models.user import DBFlowersInOrder
+from schema import UpdateOrderReq, CreateFlsInOrdr
 
 
 class CRUDFlowersInOrder(CRUDBase[DBFlowersInOrder, CreateFlsInOrdr, UpdateOrderReq]):
     """
-    Wrapper to handle User CRUD operations.
-    """
-
+       Wrapper to handle FlowerInOrder CRUD operations.
+       """
     async def get_by_order_id(
             self,
             *,
             order_id: UUID,
     ) -> DBFlowersInOrder | None:
-        """
-        Method to get user by email.
-
-        :param email: user email
-        :type email: str
-        :return: user object
-        :rtype: DBUser
-        """
         flower_orders = await self.session.execute(
             select(DBFlowersInOrder).where(DBFlowersInOrder.order_id == order_id))
         return flower_orders.scalar_one_or_none()
@@ -61,7 +46,6 @@ class CRUDFlowersInOrder(CRUDBase[DBFlowersInOrder, CreateFlsInOrdr, UpdateOrder
             self,
             obj_in: CreateFlsInOrdr
     ) -> DBFlowersInOrder:
-
         db_obj = DBFlowersInOrder.from_orm(obj_in)
         self.session.add(db_obj)
         await self.session.commit()
