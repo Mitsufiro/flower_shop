@@ -37,9 +37,12 @@
 
 `docker exec app alembic upgrade head`
 
-Запуск проекта 
+Запуск проекта
 
 `docker-compose up`
+
+
+<img src="screens/user_create.png" width="300" height="200">
 
 * Создание юзера.
 
@@ -89,6 +92,7 @@
 * Получение информации обо всех цветах в базе данных.
 
 <img src="screens/all_flowers.png" width="300" height="200">
+<img src="screens/flowers_indb.png" width="300" height="200">
 
 * Получение конкретного вида цветов по id.
 
@@ -130,6 +134,17 @@
   было ранее в заказе, то это указывается в описании заказа.
 
 <img src="screens/add_flowers_to_order.png" width="300" height="200">
+
+* Добавляем несколько разных цветов с разным количеством, ранее уже были добавлены Розы, Астры и Лилии в ассортимент
+  магазина:
+  <img src="screens/roses.png" width="400" height="100">
+
+  <img src="screens/asters.png" width="400" height="100">
+
+  <img src="screens/lily.png" width="400" height="100">
+
+* Смотрим заказ в который мы все добавили:
+  <img src="screens/full_order.png" width="300" height="200">
 
 • Реализован ролевой доступ к API-методам в зависимости от уровня прав пользователя.
 
