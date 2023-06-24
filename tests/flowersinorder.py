@@ -1,3 +1,4 @@
+# тесты для добавления цветов в заказ
 import uuid
 
 import requests
@@ -46,5 +47,3 @@ def test_add_flower_to_order():
     assert added_flowers["flower_id"] == created_flower["id"]
     assert added_flowers["order_id"] == created_order["id"]
     assert added_flowers["quantity"] == 3
-
-
