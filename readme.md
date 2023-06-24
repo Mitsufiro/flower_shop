@@ -6,7 +6,7 @@
         <img src="https://img.shields.io/badge/FastAPI-0.95-green?logo=fastapi&logoColor=black?style=plastic"/>
     </a>
     <a>
-        <img src="https://img.shields.io/badge/alembic-1.9.0-green?logo=alembic&logoColor=black?style=plastic">
+        <img src="https://img.shields.io/badge/alembic-1.10-green?logo=alembic&logoColor=black?style=plastic">
     </a>
     <a>
         <img src="https://img.shields.io/badge/postgresql-13-blue?logo=postgresql&logoColor=white">
@@ -36,6 +36,10 @@
 Для применения изменений, необходимо запустить
 
 `docker exec app alembic upgrade head`
+
+Запуск проекта 
+
+`docker-compose up`
 
 * Создание юзера.
 
