@@ -145,6 +145,7 @@
   <img src="screens/lily.png" width="400" height="100">
 
 * Смотрим заказ в который мы все добавили:
+
   <img src="screens/full_order.png" width="300" height="200">
 
 • Реализован ролевой доступ к API-методам в зависимости от уровня прав пользователя.
