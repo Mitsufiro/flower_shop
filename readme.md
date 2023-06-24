@@ -37,15 +37,95 @@
 
 `docker exec app alembic upgrade head`
 
-* Создание юзера с минимальной информацией о нем. Оставляем только те поля, которые хотим занести в базу данных.
+* Создание юзера.
 
-<img src="screens/user_create.png" width="400" height="200">
+<img src="screens/user_create.png" width="300" height="200">
+
+* Вход.
+
+<img src="screens/login.png" width="300" height="200">
 
 * При входе заполняем данные пользователя и просто берем access token, который нам необходим для использования методов.
 
 * Далее в зависиммости от прав юзера можем использовать методы.
 
+* Получение refresh токена.
+
+<img src="screens/refresh.png" width="300" height="200">
+
+* Выход. Токен добавляется в черный список, при входе черный список очищается.
+
+<img src="screens/logout.png" width="300" height="200">
+
+* Получение информации о текущем юзере.
+
+<img src="screens/current_user.png" width="300" height="200">
+
+* Получение списка всех юзеров.
+
+<img src="screens/user_list_info.png" width="300" height="200">
+
+* Получение подробной информации по id юзера.
+
+<img src="screens/get_admin_user_info.png" width="300" height="200">
+
+* Постраничное получение подробной информации всех юзеров.
+
+<img src="screens/get_admin_user_info.png" width="300" height="200">
+
+* Изменение информации по id юзера. Чтобы изменить конкретное поле, то достаточно оставить только его.
+
+<img src="screens/update_user_info.png" width="300" height="200">
 ## Finally:
+
+* Удаление по id юзера.
+
+<img src="screens/delete_user.png" width="300" height="200">
+
+* Получение информации обо всех цветах в базе данных.
+
+<img src="screens/all_flowers.png" width="300" height="200">
+
+* Получение конкретного вида цветов по id.
+
+<img src="screens/create_flower.png" width="300" height="200">
+
+* Добавление новых цветов в БД.
+
+<img src="screens/get_admin_user_info.png" width="300" height="200">
+
+* Получение подробной информации по id юзера.
+
+<img src="screens/get_admin_user_info.png" width="300" height="200">
+
+* Удаление цветка из БД.
+
+<img src="screens/delete_flower.png" width="300" height="200">
+
+* Получение всех заказов.
+
+<img src="screens/all_orders.png" width="300" height="200">
+
+* Создание заказа в который в последствии можно будет добавлять цветы.
+
+<img src="screens/create_order.png" width="300" height="200">
+
+* Получение информации о заказе по id заказа.
+
+<img src="screens/get_order.png" width="300" height="200">
+
+* Удаление заказа по его id.
+
+<img src="screens/del_order.png" width="300" height="200">
+
+* Получение информации о добавлении цветов в заказы. Может понадовиться для статистики.
+
+<img src="screens/all_flowersinorder.png" width="300" height="200">
+
+* Добавление цветов в заказ. При добавлении изменяется общая стоимость заказа, если это новый вид цветов, которого не
+  было ранее в заказе, то это указывается в описании заказа.
+
+<img src="screens/add_flowers_to_order.png" width="300" height="200">
 
 • Реализован ролевой доступ к API-методам в зависимости от уровня прав пользователя.
 
@@ -63,5 +143,4 @@
 
 • Настроена аутентификация (Доступ к методам производится путем подачи токена со стороны пользователя).
 
-• Код отредактирован (flake8, black, isort).
 
