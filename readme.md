@@ -42,7 +42,7 @@
 `docker-compose up`
 
 
-<img src="screens/user_create.png" width="300" height="200">
+
 
 * Создание юзера.
 
@@ -83,7 +83,7 @@
 * Изменение информации по id юзера. Чтобы изменить конкретное поле, то достаточно оставить только его.
 
 <img src="screens/update_user_info.png" width="300" height="200">
-## Finally:
+
 
 * Удаление по id юзера.
 
@@ -147,6 +147,8 @@
 * Смотрим заказ в который мы все добавили:
 
   <img src="screens/full_order.png" width="300" height="200">
+
+## Finally:
 
 • Реализован ролевой доступ к API-методам в зависимости от уровня прав пользователя.
 
